@@ -21,19 +21,19 @@ export async function getProductById(productId) {
     return rows.length > 0 ? rows[0] : null;
 }
 
-export async function createProduct({ name, description, price, category }) {
+export async function createProduct({ name, description, price, category, image_url }) {
     try {
         const [result] = await pool.query(
-            'INSERT INTO products (name, description, price, category) VALUES (?, ?, ?, ?)',
-            [name, description, price, category]
+            'INSERT INTO products (name, description, price, category, image_url) VALUES (?, ?, ?, ?, ?)',
+            [name, description, price, category, image_url]
         );
-        // Retornar el nuevo ID del producto
         return { message: 'Producto creado', productId: result.insertId };
     } catch (error) {
         console.error('Error en createProduct:', error.message, error.stack);
-        throw error; // Relanzar el error para manejarlo en la ruta
+        throw error;
     }
 }
+
 
 // Actualizar un producto por ID
 export async function updateProduct(productId, { name, description, price, category }) {

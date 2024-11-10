@@ -10,9 +10,10 @@ USE ecommerce_db;
 -- Crear tabla de productos
 CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,           -- Nombre del producto
-    description TEXT NOT NULL,             -- Descripción del producto
-    price DECIMAL(10, 2) NOT NULL,         -- Precio del producto
-    category VARCHAR(100),                 -- Categoría del producto
+    name VARCHAR(255) NOT NULL,             -- Nombre del producto
+    description TEXT NOT NULL,               -- Descripción del producto
+    price DECIMAL(10, 2) NOT NULL,           -- Precio del producto
+    category VARCHAR(100),                   -- Categoría del producto
+    image_url VARCHAR(500),                  -- URL de la imagen del producto
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Fecha de creación
 );
